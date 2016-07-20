@@ -7,7 +7,7 @@ use LWP::Simple;
 use String::Util 'trim';
 
 # Set path for the HTML files.
-my $outpath="B:\\Research\\Projects\\Incarceration\\Michigan\test";
+my $outpath="B:\\Research\\Projects\\Incarceration\\Michigan\\test";
 
 # Initialize the starting number and ending number
 # Each prisoner in Michigan is assigned a 6 digit number (many have leading zeros). We don't know which numbers are used,
@@ -35,7 +35,7 @@ for (my $pageindex=$startfile; $pageindex<=$endfile; $pageindex++) {
   my $name="";
   if ($content=~/<span id="valFullName">(.*?)<\/span>/) {
      
-     $name=$2; $name=trim($name);
+     $name=$1; $name=trim($name);
      if ($name eq "") { }
      else {
       # Open and print HTML
