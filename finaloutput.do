@@ -25,11 +25,6 @@ export delimited using "ohio_final", replace
 
 cd B:\Research\Projects\Incarceration\Michigan\data
 import delimited "michigan_data_test.txt", clear varnames(1) delimiter(tab) stringcols(_all) 
-drop if name==""
-gen length=length(offnum)
-keep if length==6
-drop length
-compress
 tempfile hold
 save `hold', replace
 
