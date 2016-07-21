@@ -18,8 +18,10 @@ foreach i in `vals' {
 }
 
 merge 1:m offnum using `hold'
-
-
+keep if _merge==3
+drop _merge
+cd B:\Research\Projects\Incarceration\Ohio\data
+export delimited using "ohio_final", replace
 
 cd B:\Research\Projects\Incarceration\Michigan\data
 import delimited "michigan_data_test.txt", clear varnames(1) delimiter(tab) stringcols(_all) 
@@ -35,3 +37,8 @@ cd B:\Research\Projects\Incarceration\Michigan\data
 import delimited "michigan_offnumbers.txt", clear varnames(1) delimiter(tab) stringcols(_all) 
 rename v1 offnum
 merge 1:m offnum using `hold'
+keep if _merge==3
+drop _merge
+
+cd B:\Research\Projects\Incarceration\Michigan\data
+export delimited using "michigan_final", replace
